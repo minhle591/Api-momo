@@ -77,5 +77,5 @@ def spam(phone=sdtspam):
 'user-agent':'okhttp/4.9.0',}
  data = json.dumps(data)
  json=requests.post(url,headers=h,data=data).text
- print(json)
+ return json
 spam()

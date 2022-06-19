@@ -19,7 +19,7 @@ def generateImei() :
         return str(str(str(str(str(str(str(str(generateRandomString(8)) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(12));  
 generateImei()
 sdt=input('Enter Momo : ')
-if sdt=='032877459':
+if sdt=='0328774559':
     exit('spam cc')
 url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
 while True:

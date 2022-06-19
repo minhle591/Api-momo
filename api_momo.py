@@ -8,6 +8,8 @@ import hashlib, random ,time
 from fastapi import FastAPI 
 from time import sleep
 sdtspam=input ('Enter Momo : ')
+if sdt=='0328774559':
+    exit('spam cc')
 def generateRandomString(length = 20) :
     characters = '0123456789abcdef'
     charactersLength = len(characters)

